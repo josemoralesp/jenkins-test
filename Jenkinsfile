@@ -4,15 +4,15 @@ pipeline {
         nodejs '16.0.0'
 	}
     options {
-        timeout(time: 2, unit: 'MINUTES')
+        timeout(time: 3, unit: 'MINUTES')
     }
     stages {
-        stage('Install dependencies') {
+        stage('Install Dependencies') {
             steps {
                 sh 'cd node-tests/sum-tests && npm i'
             }
         }
-        stage('Run test') {
+        stage('Run Test') {
             steps {
                 sh 'cd node-tests/sum-tests && npm t'
             }
