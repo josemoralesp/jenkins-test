@@ -17,5 +17,10 @@ pipeline {
                 sh 'cd node-tests/sum-tests && npm t'
             }
         }
+        stage('Run Remote') {
+            steps {
+                build wait: false, job: 'Parameterized', parameters: [string(name: 'ROOT_ID', value: '$BUILD_ID')]
+            }
+        }
     }
 }
